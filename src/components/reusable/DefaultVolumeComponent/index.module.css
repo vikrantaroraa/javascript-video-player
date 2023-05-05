@@ -1,0 +1,33 @@
+.volume-container {
+  display: flex;
+  width: 20%;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  height: 100%;
+  color: white;
+}
+
+.icon-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.icon-container:hover {
+  background-color: var(--iconHoverBackgroundColor);
+}
+
+.volume-range-input-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.volume-range-input {
+  display: flex;
+  cursor: pointer;
+  accent-color: #fff;
+}

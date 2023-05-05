@@ -1,0 +1,15 @@
+.playback-speed-select {
+  width: 10%;
+  cursor: pointer;
+  border-radius: 3.5;
+  color: #fff;
+  font-size: 13.3px;
+  font-weight: 500;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px solid #fff;
+  border-radius: 3.5px;
+}
+
+.playback-speed-select option {
+  background-color: #fff;
+}

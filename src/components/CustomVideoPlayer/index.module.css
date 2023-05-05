@@ -1,0 +1,31 @@
+.container {
+  width: 100%;
+  height: 100%;
+}
+.video-player-and-controls-container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background-color: #f4f4f4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.player-container {
+  height: 100%;
+  width: 100%;
+}
+
+.controls-container {
+  display: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  background-color: #01da72;
+  opacity: 0.95;
+  height: 25px;
+  gap: 5px;
+  border: 1px solid #01da72;
+}

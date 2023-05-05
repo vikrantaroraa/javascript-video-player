@@ -1,0 +1,15 @@
+:root {
+  --iconHoverBackgroundColor: #0aa356;
+}
+.button-container {
+  width: 6%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #fff;
+}
+
+.button-container:hover {
+  background-color: var(--iconHoverBackgroundColor);
+}
