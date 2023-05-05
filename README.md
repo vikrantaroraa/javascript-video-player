@@ -1,70 +1,183 @@
-# Getting Started with Create React App
+# js-video-player
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple video player made in React.js for the web.
 
-## Available Scripts
+## Installation
 
-In the project directory, you can run:
+Install js-video-player with npm
 
-### `npm start`
+```bash
+npm i js-video-player
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Usage
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```javascript
+import { CustomVideoPlayer } from "js-video-player";
 
-### `npm test`
+function App() {
+  return <CustomVideoPlayer />;
+}
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Props
 
-### `npm run build`
+> ### :memo: **Note**: All props are optional
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- `videoUrl` : string
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+The link of the video that you want to play. By default the video player plays the video hosted at "https://blog.addpipe.com/static/short.mp4"
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## controls container props
 
-### `npm run eject`
+- `controlsVariant` : string
+- `controlsContainerStyle` : object
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```
+The `controlsVariant` prop only takes 2 values `bottom` and `top`. Passing 'top' will place the controls container at the top of video player. Its value is `bottom` by default.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The controls container is the part that you see at the bottom in the <CustomVideoPlayer> component. It contains all the controls i.e. play/pause button, progress bar, volume control and playback speed dropdown.
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+> :memo: **Note:** Please note that passing anything other than `top` or `bottom` to `controlsVariant` prop will result in an error.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## play and pause props
 
-## Learn More
+- `UserPlayIcon` : ReactNode
+- `UserPauseIcon` : ReactNode
+- `playAndPauseStyle` : object
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+The player comes with its own set of play and pause icons. If you want, you can also pass your own play and pause icons using `UserPlayIcon` and `UserPauseIcon` props.
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+> :memo: **Note:** Please note that the props `UserPlayIcon` and `UserPauseIcon` start with capital letter U. This is because you will be passing a react node that can be directly used as a component.
 
-### Code Splitting
+## video duration and progress bar props
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- `durationAndProgressBarStyle` : object
+- `videoDurationStyle` : object
+- `progressBarContainerStyle` : object
+- `progressBarStyle` : object
 
-### Analyzing the Bundle Size
+## volume icon and range styles
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- `UserVolumeHighIcon`: ReactNode
+- `UserVolumeMuteIcon`: ReactNode
+- `volumeIconStyle` : object
+- `volumeRangeStyle` : object
+- `volumeIconAndRangeStyle` : object
 
-### Making a Progressive Web App
+```
+The player comes with its own set of volume and mute icons. If you want, you can also pass your own volume and mute icons using `UserVolumeHighIcon` and `UserVolumeMuteIcon` props.
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+> :memo: **Note:** Please note that the props `UserVolumeHighIcon` and `UserVolumeMuteIcon` start with capital letter U. This is because you will be passing a react node that can be directly used as a component.
 
-### Advanced Configuration
+## playback speed select props
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- `userPlaybackSpeedOptions`: Array of strings
+- `userDefaultSelectedSpeedOption` : string
+- `playbackSpeedSelectStyle` : object
+- `playbackSpeedSelectOptionsStyle` : object
 
-### Deployment
+```
+The player comes with its own set of playback speed options. If you want you can also pass your own playback speed options using `userPlaybackSpeedOptions` prop that takes an array of string values where each entry in the array is a playback speed option.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+The prop `userDefaultSelectedSpeedOption` is used to determine the default selected option for the playback speed options array that the user provides. Since the video plays at normal speed after loading, the value of this prop should be normal or 1x or 1X or 1 depending on what is the normal speed passed in the options array in `userPlaybackSpeedOptions` prop.
 
-### `npm run build` fails to minify
+For better understanding, see example below.
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+> :memo: **Note:** As mentioned above the `userDefaultSelectedSpeedOption` prop is used to determine the default selected value for the playback speed options array that the user passes, therefore this becomes a necessary prop when `userPlaybackSpeedOptions` prop is used. If this prop is not passed, then after loading, the video will play at normal speed but the selected speed showing in the dropdown would be the first value in the `userPlaybackSpeedOptions` array.
+
+## passing props to `<CustomVideoPlayer>` component
+
+```javascript
+import { CustomVideoPlayer } from "js-video-player";
+
+function App() {
+  return (
+    <div className="App">
+      <CustomVideoPlayer
+        videoUrl={
+          "https://blog.addpipe.com/static/the-web-is-always-changing.webm"
+        }
+        controlsVariant={"bottom"}
+        controlsContainerStyle={{
+          opacity: 0.95,
+          height: 25,
+          gap: 5,
+          border: "1px solid #01da72",
+        }}
+        playAndPauseStyle={{
+          borderRadius: 2,
+          color: "#fff",
+          fontSize: 16,
+          height: "100%",
+          width: "6%",
+        }}
+        durationAndProgressBarStyle={{
+          height: "100%",
+          width: "64%",
+        }}
+        videoDurationStyle={{
+          color: "#fff",
+          fontSize: 12,
+          fontWeight: 600,
+        }}
+        progressBarContainerStyle={{
+          backgroundColor: "#088a49",
+          borderRadius: 5,
+          height: "30%",
+          padding: 2,
+        }}
+        progressBarStyle={{
+          backgroundColor: "#fff",
+          borderRadius: 5,
+        }}
+        volumeIconAndRangeStyle={{
+          alignItems: "center",
+          justifyContent: "center",
+          height: "100%",
+          width: "20%",
+        }}
+        volumeIconStyle={{
+          color: "white",
+          width: "100%",
+        }}
+        volumeRangeStyle={{
+          accentColor: "#fff",
+        }}
+        userPlaybackSpeedOptions={[
+          "0.25x",
+          "0.5x",
+          "0.75x",
+          "1x",
+          "1.25x",
+          "1.5x",
+          "1.75x",
+          "2x",
+        ]}
+        userDefaultSelectedSpeedOption={"1x"}
+        playbackSpeedSelectStyle={{
+          border: "1px solid #fff",
+          borderRadius: 3.5,
+          color: "#fff",
+          fontSize: 13.3,
+          fontWeight: 500,
+          backgroundColor: "rgba(0,0,0,0.2)",
+          height: "auto",
+          width: "10%",
+        }}
+        playbackSpeedSelectOptionsStyle={{
+          color: "#000",
+          fontWeight: 400,
+        }}
+      />
+    </div>
+  );
+}
+```
