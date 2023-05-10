@@ -31,6 +31,20 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vikrantaroraa/javascript-video-player"
+  },
+  "homepage": "https://github.com/vikrantaroraa/javascript-video-player#readme",
+  "license": "MIT",
+  "keywords": [
+    "js-video-player",
+    "react-library",
+    "video-player",
+    "video-player-library",
+    "media-player",
+    "player"
+  ],
   "eslintConfig": {
     "extends": [
       "react-app",
