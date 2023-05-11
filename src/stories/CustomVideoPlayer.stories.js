@@ -28,6 +28,7 @@ export const CustomVideoPlayerStory = {
       height: 25,
       gap: 5,
       border: "1px solid #01da72",
+      backgroundColor: "#01da72",
     },
     // play and pause component props start (check how to change width from here only)
     playAndPauseStyle: {
